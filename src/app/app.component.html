@@ -1,8 +1,9 @@
 <div class="container">
   <div class="todo-list">
     <div class="input-group">
-      <input type="text" placeholder="Todo" />
-      <button class="add-button">+</button>
+      <input #newTask type="text" placeholder="Todo" />
+      <button (click)="add(newTask.value)" class="add-button">+</button>
+      <!-- #newTask is called local reference -->
     </div>
     <table>
       <tr class="even" *ngFor="let task of tasks">
@@ -12,8 +13,8 @@
           </pre>
         </td>
         <td>
-          <button class="remove-button">X</button>
-          <button class="done-button">Done</button>
+          <button (click)="remove(task)" class="remove-button">X</button>
+          <button (click)="taskIsDone(task)" class="done-button">Done</button>
         </td>
       </tr>
     </table>
